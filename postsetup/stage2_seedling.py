@@ -4,7 +4,10 @@ import sys
 import subprocess
 
 def ninite():
-    subprocess.run(["ninite.exe"])
+    # Use Popen to "daemonize" the window
+    # Ninite doesn't close itself when done, and if we wait for it
+    # the post-setup stage needs user intervention to end
+    subprocess.Popen(["installers/ninite.exe"])
 
 
 if __name__=='__main__':
